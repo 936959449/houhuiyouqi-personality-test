@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#F6F0E4">
+  <title>后会友期 · 人格拼图｜交互原型 v2</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+
+    <!-- ================= 封面 ================= -->
+    <section id="screen-cover" class="screen is-active">
+      <div class="cover-sky" aria-hidden="true"></div>
+      <div class="cover-inner">
+        <div class="topbar">
+          <span class="tag">非官方粉丝向二创 · 仅供娱乐</span>
+          <span class="tag tag-ghost">交互原型 v2</span>
+        </div>
+
+        <header class="cover-header">
+          <p class="kicker">芒果TV《后会友期》同人测试</p>
+          <h1 class="cover-title">后会友期<span class="dot">·</span>人格拼图</h1>
+          <p class="cover-hook">你和 TA 走散的第几年？</p>
+          <p class="cover-sub">32 道题 · 约 5 分钟 · 8 位旧友 × 每人 3 个节目时刻 · <strong>24</strong> 种人格拼图</p>
+        </header>
+
+        <div class="ticket-fan" id="ticketFan" aria-label="8 位嘉宾人格位"></div>
+
+        <div class="cover-actions">
+          <button class="btn btn-primary btn-lg" id="btnStart">领取我的车票</button>
+          <p class="cover-note">凭第一反应选，没有对错。<br>结果是一个只属于你的组合。</p>
+        </div>
+
+        <p class="disclaimer">本测试为《后会友期》非官方二创，仅供娱乐。人物解读为节目语境下的创意演绎，不代表对真实人物的评价，也不代表节目组立场。本测试不构成任何心理学诊断。节目名称与人物姓名相关权利归原权利人所有。</p>
+      </div>
+    </section>
+
+    <!-- ================= 开场动画 ================= -->
+    <section id="screen-intro" class="screen">
+      <div class="intro-sky" aria-hidden="true"></div>
+      <button class="btn btn-ghost btn-sm intro-skip" id="btnSkipIntro">跳过</button>
+      <div class="intro-inner">
+        <div class="intro-lines" id="introLines"></div>
+        <p class="intro-foot" id="introFoot">凭第一反应作答 · 没有标准答案</p>
+      </div>
+    </section>
+
+    <!-- ================= 答题 ================= -->
+    <section id="screen-quiz" class="screen">
+      <header class="quiz-top">
+        <div class="quiz-meta">
+          <span id="qIndex">第 1 / 32 题</span>
+          <span id="qPart" class="quiz-part">第 1 天 · 检票上车</span>
+        </div>
+        <div class="train-progress">
+          <div class="rail"><div class="rail-fill" id="railFill"></div></div>
+          <div class="train" id="trainIcon" aria-hidden="true">▮▮</div>
+          <div class="stations" id="stations"></div>
+        </div>
+        <p class="part-intro" id="partIntro"></p>
+      </header>
+
+      <main class="quiz-main">
+        <h2 class="question-text" id="questionText"></h2>
+        <div class="options" id="options"></div>
+        <p class="choice-hint" id="choiceHint" aria-live="polite"></p>
+      </main>
+
+      <footer class="quiz-bottom">
+        <button class="btn btn-ghost" id="btnBack">← 上一题</button>
+        <span class="quiz-tip">A / B / C / D 也能选</span>
+        <button class="btn btn-ghost" id="btnQuit">退出</button>
+      </footer>
+    </section>
+
+    <!-- ================= 计算中 ================= -->
+    <section id="screen-loading" class="screen">
+      <div class="loading-inner">
+        <div class="loading-window" aria-hidden="true">
+          <div class="window-sky"></div>
+          <div class="window-mountains"></div>
+          <div class="window-train">▮▮▮</div>
+        </div>
+        <p class="loading-text" id="loadingText">正在回放你们那 18 天……</p>
+        <div class="loading-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+      </div>
+    </section>
+
+    <!-- ================= 结果 ================= -->
+    <section id="screen-result" class="screen">
+      <div class="result-inner">
+        <div class="topbar">
+          <span class="tag">非官方二创 · 仅供娱乐</span>
+          <button class="btn btn-ghost btn-sm" id="btnRestartTop">再测一次</button>
+        </div>
+
+        <!-- 1. 人格拼图（含台词） -->
+        <article class="ticket" id="ticket">
+          <div class="ticket-head">
+            <span class="ticket-brand">后会友期 · 人格拼图</span>
+            <span class="ticket-code" id="ticketCode">HHYQ-——-——</span>
+          </div>
+          <div class="ticket-main">
+            <p class="ticket-label">你的人格拼图</p>
+            <h1 class="ticket-combo" id="ticketCombo"></h1>
+            <div class="quote-block" id="quoteBlock">
+              <p class="quote-text" id="quoteText"></p>
+              <p class="quote-meta" id="quoteMeta"></p>
+              <p class="quote-note" id="quoteNote"></p>
+            </div>
+          </div>
+          <div class="ticket-divider" aria-hidden="true"></div>
+          <div class="ticket-stamp" id="ticketStamp" aria-hidden="true">已 检 票</div>
+        </article>
+
+        <!-- 2. 判词 -->
+        <div class="verdict" id="verdict"></div>
+
+        <!-- 3. 人物关系 -->
+        <h3 class="section-title">人物关系 <span class="section-sub">照见你的盲区与松弛面</span></h3>
+        <div class="relations" id="relations"></div>
+
+        <!-- 4. 中间：本我位 / 关系位 / 社会位 -->
+        <h3 class="section-title">你的三层拼图 <span class="section-sub">本我位 · 关系位 · 社会位</span></h3>
+        <div class="cards" id="modules"></div>
+
+        <!-- 5. 数据 -->
+        <h3 class="section-title">你的数据 <span class="section-sub">八维 / 九型 / 关系行动</span></h3>
+        <div class="charts">
+          <div class="chart-card">
+            <h4>心智能量雷达</h4>
+            <div class="radar-wrap"><svg id="radar" viewBox="0 0 280 280" role="img" aria-label="八维雷达图"></svg></div>
+            <p class="chart-note" id="radarNote"></p>
+          </div>
+          <div class="chart-card">
+            <h4>九型动机</h4>
+            <div class="bars" id="eneaBars"></div>
+            <p class="chart-note" id="eneaNote"></p>
+          </div>
+          <div class="chart-card">
+            <h4>关系行动</h4>
+            <div class="bars" id="actBars"></div>
+            <div class="repair-meter">
+              <div class="repair-labels"><span>告别</span><span>修复</span></div>
+              <div class="repair-track"><div class="repair-marker" id="repairMarker"></div></div>
+              <p class="chart-note" id="repairNote"></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. 最后：结局预测 & 一句话 -->
+        <h3 class="section-title">结局预测 <span class="section-sub">这段走散的关系，你会怎么收场</span></h3>
+        <div class="ending" id="ending"></div>
+
+        <div class="result-actions">
+          <button class="btn btn-primary" id="btnCopy">复制我的结果</button>
+          <button class="btn btn-ghost" id="btnRestart">再测一次</button>
+        </div>
+        <p class="copy-hint" id="copyHint" aria-live="polite"></p>
+
+        <p class="disclaimer">本测试为《后会友期》非官方二创，仅供娱乐。人物解读为节目语境下的创意演绎，不代表对真实人物的评价，也不代表节目组立场。本测试不构成任何心理学诊断。节目名称与人物姓名相关权利归原权利人所有。</p>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="data.js"></script>
+  <script src="scoring.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

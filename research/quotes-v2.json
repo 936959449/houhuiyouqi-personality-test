@@ -1,0 +1,843 @@
+{
+  "meta": {
+    "project": "后会友期·人格拼图",
+    "deliverable": "quotes-v2",
+    "version": "2.0.0",
+    "updated": "2026-11-14",
+    "usage": "结果页标题=「人物·后置定语版」，名字下方显示该人物一句台词；tier=primary 为默认展示，backup 为同一人物的其他版本台词。",
+    "disclaimer": "台词来自公开报道引述，不逐帧等同正片字幕；fidelity=原话/转述/书面 已逐条标注。人物解读为节目语境下的创意演绎，相关权利归原权利人。",
+    "legenda": {
+      "fidelity": {
+        "原话": "报道直接引述或加引号的引语",
+        "转述": "媒体概括、复述或还原对话，非逐字字幕",
+        "书面": "心结卡、长信、写字板等文字内容"
+      },
+      "stance": ["想修复", "还没想好", "想告别"],
+      "center": {
+        "心": "关系与自我感受",
+        "脑": "分析、判断、防御",
+        "腹": "边界、愤怒、身体行动"
+      }
+    }
+  },
+  "characters": [
+    {
+      "id": "xufei",
+      "name": "许飞",
+      "function": "Ti",
+      "enneagram": "4w5",
+      "center": "心",
+      "quotes": [
+        {
+          "tier": "primary",
+          "text": "我是被宣判的人，我能去哪儿啊，我画地为牢，厉娜。",
+          "fidelity": "原话",
+          "note": "流传更广的短版：我画地为牢啊，厉娜",
+          "scene": "巴尔斯圣山悬崖小屋，当面读长信念到一半哽咽（10月下旬播出，媒体未统一标期数）",
+          "sources": ["S1", "S2", "S3", "S4"],
+          "heat": "百度百科独立词条「画地为牢」；厉娜体造句刷屏；四川卫视、地方媒体标题化用；品牌跟风",
+          "epithet": "画地为牢版",
+          "stance": "还没想好",
+          "center": "心",
+          "safety": "无争议；建议用长句完整版，短版脱离上下文易被当成纯梗"
+        },
+        {
+          "tier": "primary",
+          "text": "你对我的所有指控，我也都收到了，无论那些罪名是否属实，我想你当时一定都非常心碎。",
+          "fidelity": "原话",
+          "scene": "悬崖小屋对谈后段，回应厉娜的指控",
+          "sources": ["S9"],
+          "heat": "被华夏时报引为观众入坑句；多篇复盘稿转引",
+          "epithet": "心碎收到版",
+          "stance": "还没想好",
+          "center": "心",
+          "safety": "涉及罪名是否属实的争议语境；截取此句不曲解，但页面不再补事实判断"
+        },
+        {
+          "tier": "primary",
+          "text": "太滑稽了。",
+          "fidelity": "转述",
+          "note": "媒体记为她对厉娜控诉的第一反应，四个字",
+          "scene": "悬崖小屋，厉娜说「我所有的经济损失呢」之后",
+          "sources": ["S4"],
+          "heat": "多稿当作两人当面算账的标志性瞬间",
+          "epithet": "太滑稽版",
+          "stance": "想告别",
+          "center": "脑",
+          "safety": "被概括的短句，非逐字字幕；后置定语可用，不宜加引号当完整台词"
+        },
+        {
+          "tier": "backup",
+          "text": "去往离天空最近的布达拉宫，我希望自由的风能吹散我们心底所有的旧结。",
+          "fidelity": "书面",
+          "note": "长信结尾",
+          "scene": "长信念读（悬崖小屋至进藏段）",
+          "sources": ["S4"],
+          "heat": "媒体称长信传出后一万多人点赞；收官两人都没下车",
+          "epithet": "自由的风版",
+          "stance": "想告别",
+          "center": "心",
+          "safety": "无争议，适合温柔告别版本"
+        },
+        {
+          "tier": "backup",
+          "text": "记不清了。",
+          "fidelity": "转述",
+          "scene": "悬崖小屋，被追问当年是否转告公司时的回答",
+          "sources": ["S5"],
+          "heat": "与太滑稽了一起构成不认领姿态，是争议核心句",
+          "epithet": "记不清版",
+          "stance": "想告别",
+          "center": "脑",
+          "safety": "争议句，只作备选；正式页面易被读成心虚"
+        }
+      ]
+    },
+    {
+      "id": "lina",
+      "name": "厉娜",
+      "function": "Si",
+      "enneagram": "6w5",
+      "center": "脑",
+      "quotes": [
+        {
+          "tier": "primary",
+          "text": "你感受到的是被宣判，那我所有的经济损失呢。",
+          "fidelity": "原话",
+          "scene": "悬崖小屋，回应许飞的画地为牢",
+          "sources": ["S4", "S7", "S8"],
+          "heat": "被称为二十年旧账当面算清的核心句；与画地为牢并列刷屏片段",
+          "epithet": "经济损失版",
+          "stance": "还没想好",
+          "center": "腹",
+          "safety": "涉雪藏、律师函等争议事实，页面只用经济损失四字，不展开指控"
+        },
+        {
+          "tier": "primary",
+          "text": "喜欢和原谅是两回事。",
+          "fidelity": "原话",
+          "scene": "被问还喜欢许飞吗，沉默几秒说喜欢之后补的一句（对谈后段）",
+          "sources": ["S8"],
+          "heat": "被专文分析为全剧唯一把账算清楚的人的标志句；社交平台高频引用",
+          "epithet": "两回事版",
+          "stance": "想告别",
+          "center": "脑",
+          "safety": "无争议，情绪浓度高但表述干净，最推荐上结果页"
+        },
+        {
+          "tier": "primary",
+          "text": "当然，非常久。",
+          "fidelity": "原话",
+          "note": "答：恨过许飞吗",
+          "scene": "对谈环节，被问是否恨过许飞",
+          "sources": ["S6"],
+          "heat": "节目早期最出圈的一句，多家媒体做成标题",
+          "epithet": "非常久版",
+          "stance": "还没想好",
+          "center": "心",
+          "safety": "无争议；承接恨过，脱离上下文会变味，建议保留提问"
+        },
+        {
+          "tier": "backup",
+          "text": "我都不忍心了。",
+          "fidelity": "原话",
+          "scene": "悬崖小屋，看到许飞状态后软下来的一句",
+          "sources": ["S5"],
+          "heat": "被解读为不是原谅是耗不动了，多稿引用",
+          "epithet": "不忍心版",
+          "stance": "想修复",
+          "center": "心",
+          "safety": "容易被误读成和解，需配最后仍未和解的说明"
+        },
+        {
+          "tier": "backup",
+          "text": "一些事发生之后，我并不知道她是什么样的人，所以我无法介绍她。",
+          "fidelity": "书面",
+          "note": "心结卡",
+          "scene": "心结卡环节（被展示）",
+          "sources": ["S8"],
+          "heat": "被专文称为比任何对峙都扎人的卡片文字",
+          "epithet": "无法介绍版",
+          "stance": "想告别",
+          "center": "脑",
+          "safety": "书面语，适合做关系结论版台词"
+        }
+      ],
+      "bonus": {
+        "text": "于公于私，于情于理，我选许飞。",
+        "fidelity": "原话",
+        "note": "2006年超女PK台节目前史，2026年被节目回放，可作当年版彩蛋",
+        "sources": ["S4"]
+      }
+    },
+    {
+      "id": "matianyu",
+      "name": "马天宇",
+      "function": "Ni",
+      "enneagram": "9w1",
+      "center": "腹",
+      "quotes": [
+        {
+          "tier": "primary",
+          "text": "人类好可怕，我要回郊区了。",
+          "fidelity": "原话",
+          "note": "节目外：录制结束后在机场对粉丝说，非正片",
+          "scene": "录制结束、机场",
+          "sources": ["S10"],
+          "heat": "与密友为零、和AI聊天共同构成他的舆论形象，节目期最出圈的综艺外一句",
+          "epithet": "回郊区版",
+          "stance": "想告别",
+          "center": "腹",
+          "safety": "非正片台词，页面须标录制后机场实录"
+        },
+        {
+          "tier": "primary",
+          "text": "不管你真忘没忘，成年人大大方方道个歉，别争这个。",
+          "fidelity": "转述",
+          "note": "他劝王子璇的原话大意，多稿措辞略异",
+          "scene": "某期谈心/饭桌，劝王子璇处理与文吉儿的旧账",
+          "sources": ["S11", "S31"],
+          "heat": "被微博大V转发，成为他绕了十年才学会的一句话的对照梗",
+          "epithet": "大方道歉版",
+          "stance": "想修复",
+          "center": "心",
+          "safety": "转述句，以大意呈现更稳妥"
+        },
+        {
+          "tier": "primary",
+          "text": "我没有别的了。",
+          "fidelity": "原话",
+          "note": "说除了照顾姐姐一家之外没有别的了",
+          "scene": "谈心环节，谈支撑自己的东西时落泪",
+          "sources": ["S11", "S12"],
+          "heat": "与没有幸福感、没有欲望一起成为情绪决堤名场面",
+          "epithet": "没有别的版",
+          "stance": "还没想好",
+          "center": "心",
+          "safety": "情绪极重，建议配心理援助提示语"
+        },
+        {
+          "tier": "backup",
+          "text": "裂痕是真实存在的。",
+          "fidelity": "转述",
+          "scene": "与张萌重新加回微信后",
+          "sources": ["S11"],
+          "heat": "用来概括加回好友但回不到从前的结局",
+          "epithet": "裂痕真实版",
+          "stance": "想告别",
+          "center": "脑",
+          "safety": "转述；适合和解但有限的语义"
+        },
+        {
+          "tier": "backup",
+          "text": "回不到从前。",
+          "fidelity": "转述",
+          "note": "加回微信后两人各自都说了同一句话",
+          "scene": "加回微信当场",
+          "sources": ["S11"],
+          "heat": "媒体以双方说了同一句话作为这段关系的收束",
+          "epithet": "回不到从前版",
+          "stance": "想告别",
+          "center": "脑",
+          "safety": "双方共同表述，不要单独挂在马天宇名下"
+        }
+      ]
+    },
+    {
+      "id": "zhangmeng",
+      "name": "张萌",
+      "function": "Fe",
+      "enneagram": "2w3",
+      "center": "心",
+      "quotes": [
+        {
+          "tier": "primary",
+          "text": "也许我不应该叫他来这里，一切都是错的。",
+          "fidelity": "原话",
+          "scene": "谈心环节，看到马天宇崩溃落泪后的自责",
+          "sources": ["S10", "S12"],
+          "heat": "11月13日片段登微博热搜第5位（媒体记热度值68.4万）；话题张萌后悔叫马天宇上节目多稿跟进",
+          "epithet": "都是错的版",
+          "stance": "想修复",
+          "center": "心",
+          "safety": "无争议，是发起人自责的最佳注脚"
+        },
+        {
+          "tier": "primary",
+          "text": "我的戏，以后你都别来。",
+          "fidelity": "转述",
+          "note": "她在节目里复述2018年那句气话；另有稿写作那以后我的戏你都别来",
+          "scene": "往事复盘（复述，不是当下对马天宇说）",
+          "sources": ["S10", "S11"],
+          "heat": "被反复引为两人十年断联的导火索",
+          "epithet": "都别来版",
+          "stance": "想告别",
+          "center": "腹",
+          "safety": "当年气话的转述，页面须标她复述当年"
+        },
+        {
+          "tier": "primary",
+          "text": "下次我帮你写序。",
+          "fidelity": "原话",
+          "note": "随即意识到不妥并道歉",
+          "scene": "王子璇/文吉儿事件期间的圆场玩笑",
+          "sources": ["S17"],
+          "heat": "被媒体记为高情商翻车又补救的名场面",
+          "epithet": "帮你写序版",
+          "stance": "想修复",
+          "center": "心",
+          "safety": "无争议；玩笑语境需保留说完立刻道歉"
+        },
+        {
+          "tier": "backup",
+          "text": "做不了主的老板娘。",
+          "fidelity": "转述",
+          "note": "她表达被当成附属品时的自我概括，媒体概括为老板娘心结",
+          "scene": "谈马天宇越过她、直接向她丈夫吕超道歉",
+          "sources": ["S13"],
+          "heat": "话题张萌自述老板娘心结发酵，多篇评论延展到职场女性议题",
+          "epithet": "老板娘版",
+          "stance": "还没想好",
+          "center": "腹",
+          "safety": "涉性别与职场敏感议题，只作备选；须说明是她的感受概括"
+        },
+        {
+          "tier": "backup",
+          "text": "每到一地都给他买一个（杯子）。",
+          "fidelity": "转述",
+          "scene": "与马天宇和解当场，拿出攒了十年的马克杯",
+          "sources": ["S11", "S13"],
+          "heat": "马克杯成为该组十年惦记的视觉符号",
+          "epithet": "马克杯版",
+          "stance": "想修复",
+          "center": "心",
+          "safety": "转述；无争议，适合补偿型热情版本"
+        }
+      ]
+    },
+    {
+      "id": "wangzixuan",
+      "name": "王子璇",
+      "function": "Fi",
+      "enneagram": "3w4",
+      "center": "心",
+      "quotes": [
+        {
+          "tier": "primary",
+          "text": "我收费用是真的，虚荣心是真的，要面子是真的。但拼凑出来表述的那个人，不是真的我。",
+          "fidelity": "原话",
+          "scene": "悬崖小屋对质后、退款前的自我陈述",
+          "sources": ["S16"],
+          "heat": "被称悬崖悟道段落的核心句；短视频切片刷屏",
+          "epithet": "不是真我版",
+          "stance": "想告别",
+          "center": "心",
+          "safety": "无争议、无粗口，最适合上结果页"
+        },
+        {
+          "tier": "primary",
+          "text": "我昨天非常狼狈，但是我不丢人，我直面了二十岁的自己。",
+          "fidelity": "原话",
+          "scene": "退款当天的陈述（次日）",
+          "sources": ["S16"],
+          "heat": "被解读为唯一不和解组的体面，多稿引用；网友评像品如爆改高珊珊",
+          "epithet": "直面二十岁版",
+          "stance": "想告别",
+          "center": "腹",
+          "safety": "无争议，适合清算但体面版本"
+        },
+        {
+          "tier": "primary",
+          "text": "钱我退给你。但是，我不想和你做朋友了。",
+          "fidelity": "转述",
+          "note": "媒体还原的当场对话；多稿写作我不想做朋友了",
+          "scene": "悬崖小屋/店内退款环节（次日退还，媒体表述略异）",
+          "sources": ["S18", "S19"],
+          "heat": "收官不下车，成为全季唯一未和解的一组；相关话题霸榜",
+          "epithet": "不做朋友版",
+          "stance": "想告别",
+          "center": "腹",
+          "safety": "转述还原句；退款有当场/次日两说，页面不写细节"
+        },
+        {
+          "tier": "backup",
+          "text": "没关系啊，我下次还会收费的。",
+          "fidelity": "原话",
+          "scene": "张萌玩笑下次我帮你写序后的回应",
+          "sources": ["S17"],
+          "heat": "节目播出后上热搜，成为不内耗的代表梗",
+          "epithet": "下次收费版",
+          "stance": "还没想好",
+          "center": "脑",
+          "safety": "无争议，适合轻松版结果页"
+        },
+        {
+          "tier": "backup",
+          "text": "不记得了。",
+          "fidelity": "原话",
+          "note": "面对八年前转账记录时反复说；她随后承认并退款",
+          "scene": "悬崖小屋，文吉儿出示转账记录的当下",
+          "sources": ["S14"],
+          "heat": "话题这一段怎么完全没印象在社交平台发酵",
+          "epithet": "不记得了版",
+          "stance": "还没想好",
+          "center": "脑",
+          "safety": "易被读成装傻，只作备选；页面需说明随后承认并退款"
+        }
+      ]
+    },
+    {
+      "id": "wenjier",
+      "name": "文吉儿",
+      "function": "Te",
+      "enneagram": "1w2",
+      "center": "腹",
+      "gapNote": "她的节目发言无逐字稿级报道，以下均为媒体还原对话或摘要转述，全部标转述；上线前建议以正片字幕核准，否则只用语义概括。",
+      "quotes": [
+        {
+          "tier": "primary",
+          "text": "今天摊开，就是想要一个答案，想翻篇。",
+          "fidelity": "转述",
+          "note": "媒体还原对话",
+          "scene": "悬崖小屋，出示保存八年的转账记录时",
+          "sources": ["S18"],
+          "heat": "该段对质被多家媒体称为友谊边界名场面，话题冲上热搜（媒体口径）",
+          "epithet": "想要答案版",
+          "stance": "想修复",
+          "center": "腹",
+          "safety": "转述；想翻篇与后续未和解形成反差，页面要交代结果"
+        },
+        {
+          "tier": "primary",
+          "text": "普通朋友帮忙，谁会收钱？",
+          "fidelity": "转述",
+          "note": "媒体还原/摘要",
+          "scene": "悬崖小屋，追问王子璇当年为何收下三万元",
+          "sources": ["S18", "S19"],
+          "heat": "被引为这场八年心结的一句话总结，多稿引用",
+          "epithet": "谁会收钱版",
+          "stance": "想告别",
+          "center": "腹",
+          "safety": "转述；指向具体金钱争议，页面只用前半句更稳妥"
+        },
+        {
+          "tier": "primary",
+          "text": "我收下这笔钱，就是我选择翻篇。",
+          "fidelity": "转述",
+          "note": "媒体还原对话",
+          "scene": "王子璇退款后，她的回应",
+          "sources": ["S18"],
+          "heat": "被解读为两人翻篇定义完全不同的关键对照句",
+          "epithet": "收下就翻篇版",
+          "stance": "想修复",
+          "center": "脑",
+          "safety": "转述；语义依赖上下文，页面需配场景说明"
+        },
+        {
+          "tier": "backup",
+          "text": "这件事我记了八年。",
+          "fidelity": "转述",
+          "scene": "悬崖小屋开场陈述",
+          "sources": ["S18"],
+          "heat": "与保存八年转账记录的动作绑定，是最直观的记忆符号",
+          "epithet": "记了八年版",
+          "stance": "还没想好",
+          "center": "脑",
+          "safety": "转述；无粗口"
+        },
+        {
+          "tier": "backup",
+          "text": "那你当时收下那一刻，有没有一秒觉得，我们是朋友，不该收？",
+          "fidelity": "转述",
+          "scene": "悬崖小屋，追问环节",
+          "sources": ["S18"],
+          "heat": "被剪成切片传播，评论区两派争执的代表句",
+          "epithet": "有没有一秒版",
+          "stance": "想告别",
+          "center": "心",
+          "safety": "压迫感强，只作备选，不宜作默认展示台词"
+        }
+      ]
+    },
+    {
+      "id": "baixiaochun",
+      "name": "白小纯",
+      "function": "Se",
+      "enneagram": "5w6",
+      "center": "脑",
+      "quotes": [
+        {
+          "tier": "primary",
+          "text": "我现在不想和好，现在我不可能原谅。",
+          "fidelity": "原话",
+          "scene": "悬崖小屋和解后饭桌上，当着众人对青稚说（11月6日播出的那期）",
+          "sources": ["S20"],
+          "heat": "节目最出圈冲突点；衍生热搜词条被子没了；被赞不配合表演和解",
+          "epithet": "不可能原谅版",
+          "stance": "想告别",
+          "center": "腹",
+          "safety": "无粗口但情绪重，页面避免配和解字样"
+        },
+        {
+          "tier": "primary",
+          "text": "承认了，这就已经够了，我也不需要道歉。",
+          "fidelity": "原话",
+          "scene": "青稚道歉后，他的回应（后段）",
+          "sources": ["S20"],
+          "heat": "被反复引用为他要的不是道歉而是一句确认",
+          "epithet": "承认就够了版",
+          "stance": "还没想好",
+          "center": "脑",
+          "safety": "无争议，适合要一个准话版本"
+        },
+        {
+          "tier": "primary",
+          "text": "每天训练像坐牢一样很恐怖。",
+          "fidelity": "书面",
+          "note": "心结卡；另一稿写作每天训练像坐牢",
+          "scene": "悬崖小屋心结卡环节，被要求当众念出",
+          "sources": ["S20", "S21"],
+          "heat": "该环节被称为开播以来最失控的一幕；心结卡成为节目机制梗",
+          "epithet": "坐牢版",
+          "stance": "想告别",
+          "center": "腹",
+          "safety": "书面语，不涉第三方，适合做卡面式视觉台词"
+        },
+        {
+          "tier": "backup",
+          "text": "在我眼里，很多时候你是装出来的。",
+          "fidelity": "原话",
+          "scene": "饭桌对峙，接着这两年很多人私下跟我吐槽你之后",
+          "sources": ["S20", "S25"],
+          "heat": "被360娱乐称为整场对峙里最狠的一句",
+          "epithet": "装出来版",
+          "stance": "想告别",
+          "center": "腹",
+          "safety": "强烈指责性，只作备选；涉人品质疑，页面慎用"
+        },
+        {
+          "tier": "backup",
+          "text": "恨比爱长久。",
+          "fidelity": "转述",
+          "note": "读信/送礼环节的嘴硬话，360娱乐叙述",
+          "scene": "收官前读信环节（他读信手抖、耳朵红）",
+          "sources": ["S25"],
+          "heat": "被粉丝当作嘴硬心软的代表句反复引用",
+          "epithet": "恨比爱长久版",
+          "stance": "还没想好",
+          "center": "心",
+          "safety": "转述；无粗口，适合嘴硬版本"
+        }
+      ],
+      "safetyFlag": {
+        "text": "我见钱眼开，就去道歉了。",
+        "fidelity": "书面（被剪画面，网友逐帧复原）",
+        "note": "单方陈述，天霸俱乐部与节目组均未回应，未证实；未收进主备选",
+        "sources": ["S23"]
+      }
+    },
+    {
+      "id": "qingzhi",
+      "name": "青稚",
+      "function": "Ne",
+      "enneagram": "7w6",
+      "center": "脑",
+      "quotes": [
+        {
+          "tier": "primary",
+          "text": "除了游戏，现实中我和他挺处得来。",
+          "fidelity": "原话",
+          "note": "另一稿记作除了游戏我们现实处得来",
+          "scene": "悬崖小屋，张泉灵问你们是不是从头就不是一样的人之后",
+          "sources": ["S20", "S21"],
+          "heat": "被当作两人其实合得来的核心证据，多稿引用",
+          "epithet": "挺处得来版",
+          "stance": "想修复",
+          "center": "心",
+          "safety": "无争议、无粗口，最适合上结果页"
+        },
+        {
+          "tier": "primary",
+          "text": "我真的想和你说个对不起，我真的意识不到。",
+          "fidelity": "原话",
+          "scene": "11月6日那期，被不可能原谅击中后的回应",
+          "sources": ["S21", "S23"],
+          "heat": "被剪进预告与热搜切片，成为道歉却被打断的名场面",
+          "epithet": "真的对不起版",
+          "stance": "想修复",
+          "center": "心",
+          "safety": "无争议；情绪重，建议配对方当时没接的说明"
+        },
+        {
+          "tier": "primary",
+          "text": "一切。",
+          "fidelity": "书面",
+          "note": "被问电竞对你是什么，他写下两个字；白小纯写的是赚钱",
+          "scene": "悬崖小屋写字环节（张泉灵出题）",
+          "sources": ["S21"],
+          "heat": "赚钱 vs 一切的对照被全网转发，是两人分歧的极简可视化",
+          "epithet": "一切版",
+          "stance": "想修复",
+          "center": "腹",
+          "safety": "极短，适合大字视觉；需搭配白小纯写的是赚钱才有梗"
+        },
+        {
+          "tier": "backup",
+          "text": "为什么什么都要归功到我身上？",
+          "fidelity": "原话",
+          "note": "本想说归咎，口误成归功",
+          "scene": "悬崖小屋争吵，与白小纯包庇/包容口误并列",
+          "sources": ["S20", "S21"],
+          "heat": "被称文盲吵架名场面，弹幕与切片反复玩包庇/归功梗",
+          "epithet": "归功版",
+          "stance": "还没想好",
+          "center": "脑",
+          "safety": "梗依赖口误，只作备选；单独引用会没头没尾"
+        },
+        {
+          "tier": "backup",
+          "text": "我要是意识不到，就不会来找你和好了。",
+          "fidelity": "转述",
+          "scene": "被不想和好、不可能原谅拒绝后的回应",
+          "sources": ["S24"],
+          "heat": "被视为把对话从对错拉回在乎的关键句",
+          "epithet": "意识不到版",
+          "stance": "想修复",
+          "center": "心",
+          "safety": "转述；措辞与我真的意识不到接近，注意不要与主选B混用"
+        }
+      ]
+    }
+  ],
+  "memes": [
+    {
+      "id": 1,
+      "name": "画地为牢／厉娜体",
+      "type": "嘉宾台词（许飞）",
+      "note": "长信原句；衍生我+状态，厉娜万能模板",
+      "usableForGuests": "yes",
+      "usableNote": "许飞主梗，也可作全站主视觉",
+      "sources": ["S1", "S2"]
+    },
+    {
+      "id": 2,
+      "name": "我画地为牢，厉娜吃麦当劳",
+      "type": "网友梗（跨人物）",
+      "note": "厉娜回房查词义后点外卖，网友总结的对照",
+      "usableForGuests": "caution",
+      "usableNote": "只作页面彩蛋，不当某人的后置定语",
+      "sources": ["S1"]
+    },
+    {
+      "id": 3,
+      "name": "赛博厉娜",
+      "type": "网友梗",
+      "note": "机场粉丝扮赛博厉娜给许飞科普",
+      "usableForGuests": "caution",
+      "usableNote": "与旅程嘉宾无关，仅彩蛋",
+      "sources": ["S30"]
+    },
+    {
+      "id": 4,
+      "name": "鸭舌（绝味找厉娜、周黑鸭找许飞）",
+      "type": "消费外溢梗",
+      "note": "品牌借梗站队",
+      "usableForGuests": "no",
+      "usableNote": "商用风险高，测试页勿用",
+      "sources": ["S4"]
+    },
+    {
+      "id": 5,
+      "name": "大芒果",
+      "type": "平台/商务梗",
+      "note": "取景地+赞助语境",
+      "usableForGuests": "caution",
+      "usableNote": "平台向，不给嘉宾",
+      "sources": ["S28"]
+    },
+    {
+      "id": 6,
+      "name": "亚军天团／全员第二名",
+      "type": "观察室梗",
+      "note": "周笔畅（超女亚军）、苏醒（快男亚军）、黄婷婷（SNH48最高第二名），李维嘉调侃",
+      "usableForGuests": "no",
+      "usableNote": "观察室不是旅程嘉宾",
+      "sources": ["S27"]
+    },
+    {
+      "id": 7,
+      "name": "人二（黄子弘凡自称）",
+      "type": "观察室梗",
+      "note": "接着亚军话题自嘲",
+      "usableForGuests": "no",
+      "usableNote": "观察室不是旅程嘉宾",
+      "sources": ["S27"]
+    },
+    {
+      "id": 8,
+      "name": "何老师没接这节目",
+      "type": "观察室梗（李维嘉）",
+      "note": "调侃节目组凑亚军天团",
+      "usableForGuests": "no",
+      "usableNote": "观察室不是旅程嘉宾",
+      "sources": ["S27"]
+    },
+    {
+      "id": 9,
+      "name": "第一跟第三会更容易产生友谊",
+      "type": "观察室梗（黄婷婷）",
+      "note": "被追问前面是谁后的回应",
+      "usableForGuests": "no",
+      "usableNote": "观察室不是旅程嘉宾",
+      "sources": ["S29"]
+    },
+    {
+      "id": 10,
+      "name": "被子没了",
+      "type": "动作名场面（青稚）",
+      "note": "抱被搬出双人间睡沙发，热搜三字词条",
+      "usableForGuests": "yes",
+      "usableNote": "青稚/白小纯",
+      "sources": ["S20"]
+    },
+    {
+      "id": 11,
+      "name": "铁幕演说",
+      "type": "节目前史梗（青稚）",
+      "note": "2024年直播称不可能再和好",
+      "usableForGuests": "yes",
+      "usableNote": "青稚，须标节目前史",
+      "sources": ["S20"]
+    },
+    {
+      "id": 12,
+      "name": "文盲吵架（包庇/归功）",
+      "type": "台词名场面",
+      "note": "白小纯包庇、青稚归功双口误",
+      "usableForGuests": "yes",
+      "usableNote": "仅两人组合用",
+      "sources": ["S21"]
+    },
+    {
+      "id": 13,
+      "name": "心结卡",
+      "type": "节目机制梗",
+      "note": "写下心结并当众念出",
+      "usableForGuests": "yes",
+      "usableNote": "通用，可做UI卡片",
+      "sources": ["S20"]
+    },
+    {
+      "id": 14,
+      "name": "三万元写序费",
+      "type": "嘉宾事件梗",
+      "note": "八年转账记录对质",
+      "usableForGuests": "yes",
+      "usableNote": "王子璇/文吉儿，不写金额细节争议",
+      "sources": ["S14"]
+    },
+    {
+      "id": 15,
+      "name": "攒了十年的马克杯",
+      "type": "道具名场面（张萌）",
+      "note": "每到一地买一个",
+      "usableForGuests": "yes",
+      "usableNote": "张萌/马天宇",
+      "sources": ["S11"]
+    },
+    {
+      "id": 16,
+      "name": "老板娘",
+      "type": "嘉宾事件梗（张萌）",
+      "note": "被越过直接找她丈夫道歉",
+      "usableForGuests": "caution",
+      "usableNote": "涉性别/职场议题，慎用",
+      "sources": ["S13"]
+    },
+    {
+      "id": 17,
+      "name": "下车／没下车",
+      "type": "节目机制梗",
+      "note": "收官和解可提前下车规则",
+      "usableForGuests": "yes",
+      "usableNote": "通用",
+      "sources": ["S4"]
+    },
+    {
+      "id": 18,
+      "name": "布达拉宫合照少了文吉儿",
+      "type": "网友梗",
+      "note": "收官合照缺人引讨论",
+      "usableForGuests": "caution",
+      "usableNote": "指向真人缺席，慎用",
+      "sources": ["S14"]
+    },
+    {
+      "id": 19,
+      "name": "回旋镖（王子璇/白小纯同游）",
+      "type": "网友梗·未证实",
+      "note": "纯八卦推测",
+      "usableForGuests": "no",
+      "usableNote": "未证实，禁用",
+      "sources": ["S14"]
+    },
+    {
+      "id": 20,
+      "name": "你值得拥有更好的（张泉灵）→更好的朋友",
+      "type": "观察室/主持梗",
+      "note": "白小纯的理解成梗，老师劝分",
+      "usableForGuests": "no",
+      "usableNote": "非旅程嘉宾，最多做回声彩蛋",
+      "sources": ["S22"]
+    }
+  ],
+  "gaps": [
+    "文吉儿全部为转述（无逐字稿级报道），三句主选均需标注媒体还原对话；上线前建议以正片字幕校准。",
+    "张萌我的戏以后你都别来是她复述2018年气话，不是本次对马天宇说的，且存在那以后我的戏你都别来的版本差异。",
+    "马天宇人类好可怕我要回郊区了是录制结束后机场对粉丝说的，非正片。",
+    "王子璇不做朋友句为媒体还原，退款有当场/次日两说，页面不写细节。",
+    "白小纯见钱眼开句出自被剪掉的模糊画面、单方陈述、俱乐部与节目组未回应，未证实，只作告警不入库。",
+    "期数口径：媒体多按播出日描述（11/5第四期、11/6电竞组期、11/13热搜日），官方第几期未统一，本文统一写场景+播出日（媒体口径）。"
+  ],
+  "specCorrection": {
+    "file": "spec/characters.json",
+    "character": "文吉儿",
+    "currentQuote": "不同阶段有不同认知。",
+    "issue": "该句实为三人共友陆翊的回应，误挂到文吉儿名下",
+    "suggestedReplacement": "今天摊开，就是想要一个答案，想翻篇。",
+    "sources": ["S15"]
+  },
+  "sourceIndex": {
+    "S1": "https://baike.baidu.com/item/%E7%94%BB%E5%9C%B0%E4%B8%BA%E7%89%A2/69581074",
+    "S2": "https://www.hhtznews.com.cn/content/content_9943590.html",
+    "S3": "https://www.sctv.com/news/2119657176527781889",
+    "S4": "https://yule.360.com/detail/5288815",
+    "S5": "https://ent.china.com/movie/newszh/11005281/20261113/49869068_1.html",
+    "S6": "https://ent.china.com/movie/newszh/11005281/20261027/49821283.html",
+    "S7": "https://www.toutiao.com/article/7707817456823992858/",
+    "S8": "https://www.360kuai.com/93d223fe9966e9d6d",
+    "S9": "https://www.chinatimes.net.cn/article/156948.html",
+    "S10": "https://ent.china.com/gundong/11015422/20261023/49813171.html",
+    "S11": "https://www.toutiao.com/w/1881717989679180/",
+    "S12": "https://sina.cn/news/detail/5364731884079209.html",
+    "S13": "https://www.sina.cn/news/detail/5362201449989968.html",
+    "S14": "https://www.sina.cn/news/detail/5364028765376788.html",
+    "S15": "https://yule.360.com/detail/5283296",
+    "S16": "https://m.163.com/dy/article_v5/LB9OJRRB05523Q9W.html",
+    "S17": "https://yule.360.com/detail/5291529",
+    "S18": "https://www.toutiao.com/article/7705633249955037723/",
+    "S19": "https://weibo.com/2/detail/5364389834132069",
+    "S20": "https://ent.china.com/movie/newszh/11005281/20261112/49865870_all.html",
+    "S21": "https://ent.china.com/movie/newszh/11005281/20261112/49865930_all.html",
+    "S22": "https://sina.cn/news/detail/5365082970131149.html",
+    "S23": "https://www.sina.cn/news/detail/5364917939208360.html",
+    "S24": "https://weibo.com/2/detail/comos:niyriiv3478590",
+    "S25": "https://yule.360.com/detail/5292910",
+    "S26": "https://www.toutiao.com/article/7704641416387674624/",
+    "S27": "https://sina.cn/news/detail/5356906241592581.html",
+    "S28": "https://weibo.com/2/detail/5361967011205077",
+    "S29": "https://yule.360.com/detail/5262677",
+    "S30": "https://www.360kuai.com/pc/detail?sign=360_d6d594ba",
+    "S31": "https://weibo.com/2/detail/5364519394345021"
+  }
+}
