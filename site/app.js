@@ -1,6 +1,6 @@
 /* ============================================================
    后会友期 · 人格拼图 —— 页面交互逻辑
-   流程：封面 → 开场动画（可跳过）→ 32 题 → 票根人格拼图
+   流程：封面 → 开场动画（可跳过）→ 20 题 → 票根人格拼图
    ============================================================ */
 (function () {
   'use strict';
@@ -12,11 +12,11 @@
   var LOADING_TEXTS = [
     '正在回放你们那 18 天……',
     '在观察室里，给每一种动机打分……',
-    '把你的选择和 8 位旧友对上号……',
+    '把你的选择和同车的人对上号……',
   ];
   var INTRO_LINES = [
     '2026 年，你收到一张没有署名的车票。',
-    '终点是张掖。同行的是四组走散多年的旧友。',
+    '终点是张掖。同行的还有三对走散多年的旧友。',
     '还有一个人——你也说不清，还算不算朋友。',
     '接下来 18 天，你不需要和好，只需要诚实。',
     '现在，请把 TA 想成那个你一直没联系的人。',
@@ -52,7 +52,7 @@
     ],
   };
 
-  var state = { index: 0, answers: {}, result: null, locked: false };
+  var state = { index: 0, answers: {}, result: null, locked: false, optionSeed: 0 };
   var introTimer = null;
   var introIndex = 0;
 
@@ -78,9 +78,11 @@
   function fnName(fn) { return D.functionName[fn] || fn; }
 
   function stableOrder(q) {
+    // 每次作答（每次开始新测试）用一个随机种子；同一次测试里回看题目顺序不变。
+    var seedKey = state.optionSeed + '|' + q.id;
     return q.options.slice().sort(function (a, b) {
-      var ha = S.answerSeed([{ questionId: q.id + '|order', optionId: a.id }]);
-      var hb = S.answerSeed([{ questionId: q.id + '|order', optionId: b.id }]);
+      var ha = S.answerSeed([{ questionId: seedKey, optionId: a.id }]);
+      var hb = S.answerSeed([{ questionId: seedKey, optionId: b.id }]);
       return ha - hb;
     });
   }
@@ -100,7 +102,6 @@
       card.style.transform = 'translateX(' + (t * 27) + 'px) rotate(' + (t * 7) + 'deg)';
       card.style.zIndex = String(10 - Math.abs(Math.round(t)));
       card.innerHTML =
-        '<span class="fan-fn">' + escapeHtml(c.function) + '</span>' +
         '<div class="fan-name">' + escapeHtml(c.name) + '</div>' +
         '<div class="fan-role">' + escapeHtml(c.title) + '</div>';
       card.title = c.name + '｜' + c.title + '｜' + fnName(c.function);
@@ -248,6 +249,7 @@
   function startQuiz() {
     clearInterval(introTimer);
     clearTimeout(introTimer);
+    if (!state.optionSeed) state.optionSeed = Math.floor(Math.random() * 1000000000) + 1;
     var firstUnanswered = D.questions.findIndex(function (q) { return !state.answers[q.id]; });
     state.index = firstUnanswered === -1 ? 0 : firstUnanswered;
     renderStations();
@@ -259,8 +261,8 @@
   var loadingTimer = null;
   function runLoading() {
     var answered = Object.keys(state.answers).length;
-    if (answered < Math.ceil((D.questions.length * 28) / 32)) {
-      if (!window.confirm('还有几道题没答，要回去补完吗？（至少答 28 题）')) return;
+    if (answered < Math.ceil((D.questions.length * 18) / 20)) {
+      if (!window.confirm('还有几道题没答，要回去补完吗？（至少答 18 题）')) return;
       startQuiz();
       return;
     }
@@ -285,10 +287,6 @@
     renderTicket(result);
     renderVerdict(result);
     renderRelations(result);
-    renderModules(result);
-    renderRadar(result);
-    renderEnneagram(result);
-    renderActs(result);
     renderEnding(result);
     show('screen-result');
   }
@@ -298,10 +296,6 @@
     $('#ticketCode').textContent = r.code;
     $('#ticketCombo').textContent = r.combo;
     $('#quoteText').textContent = '「' + r.quote.text + '」';
-    $('#quoteMeta').textContent = '—— ' + r.person.name + ' · ' + r.quote.scene + ' · ' + r.quote.when + ' · ' + r.quote.typeLabel;
-    var note = r.quote.note;
-    $('#quoteNote').textContent = note ? '※ ' + note : '';
-    $('#quoteNote').style.display = note ? 'block' : 'none';
   }
 
   /* 2. 判词 */
@@ -331,7 +325,7 @@
           '<div class="relation-seat">' + escapeHtml(c.name.slice(0, 1)) + '</div>' +
           '<div class="relation-body">' +
           '<p class="relation-tag">' + escapeHtml(b.tag) + '</p>' +
-          '<h4>' + escapeHtml(c.name) + '（' + escapeHtml(c.function + ' ' + fnName(c.function)) + '）</h4>' +
+          '<h4>' + escapeHtml(c.name) + '（' + escapeHtml(fnName(c.function)) + '）</h4>' +
           '<p>' + escapeHtml(c.title + ' · ' + b.data.reason) + '</p>' +
           '<p>' + escapeHtml(c.oneLine) + '</p>' +
           '</div></div>'
@@ -340,129 +334,7 @@
       .join('');
   }
 
-  /* 4. 本我位 / 关系位 / 社会位 */
-  function cardHtml(title, sub, paras) {
-    return (
-      '<div class="card">' +
-      '<h4>' + escapeHtml(title) + '</h4>' +
-      '<p class="card-sub">' + escapeHtml(sub) + '</p>' +
-      paras.map(function (p) { return '<p>' + p + '</p>'; }).join('') +
-      '</div>'
-    );
-  }
-
-  function renderModules(r) {
-    var p = r.person;
-    var e = r.enneagram;
-    var idn = r.identity;
-    var html = '';
-    html += cardHtml(
-      '本我位｜' + p.name + '（' + fnName(r.type.stack.dom) + '）',
-      p.title + ' · ' + p.keywords.join(' / '),
-      [escapeHtml(p.functionRead), escapeHtml(p.relationStyle), escapeHtml('你的相处方式：' + p.relationStyle)],
-    );
-    html += cardHtml(
-      '关系位｜' + r.posture.label + ' · ' + idn.name,
-      '修复指数 ' + r.report.repairIndex + ' / 100 · 关系里的另一面：' + r.auxCharacter.name + '（' + fnName(r.type.stack.aux) + '）',
-      [
-        escapeHtml(r.posture.desc),
-        escapeHtml('你在关系里会调用' + r.auxCharacter.name + '式的方式：' + r.auxCharacter.functionRead),
-        escapeHtml('你的关系角色：' + idn.oneLine + ' 旅途里你会：' + idn.onTrip),
-        escapeHtml('高光：' + idn.highlight + '｜风险：' + idn.risk + '｜建议：' + idn.advice),
-      ],
-    );
-    html += cardHtml(
-      '社会位｜' + e.name + ' ' + e.dual + ' · ' + e.triadName,
-      e.adjective + ' · ' + e.core,
-      [
-        escapeHtml('关系模式：' + e.inRelation),
-        escapeHtml('走散剧本：' + e.estrangement),
-        escapeHtml('修复提示：' + e.repair),
-        escapeHtml('礼物：' + e.gift + '｜雷区：' + e.risk),
-      ],
-    );
-    $('#modules').innerHTML = html;
-  }
-
-  /* 5. 数据卡 */
-  function renderRadar(r) {
-    var svg = $('#radar');
-    var F = r.report.functions;
-    var fns = S.FUNCTIONS;
-    var shortFn = { Se: '外感觉', Si: '内感觉', Ne: '外直觉', Ni: '内直觉', Te: '外思维', Ti: '内思维', Fe: '外情感', Fi: '内情感' };
-    var cx = 140, cy = 140, R = 92, n = fns.length;
-    function pt(i, ratio) {
-      var angle = (-90 + (360 / n) * i) * (Math.PI / 180);
-      return [cx + Math.cos(angle) * R * ratio, cy + Math.sin(angle) * R * ratio];
-    }
-    var parts = [];
-    [0.25, 0.5, 0.75, 1].forEach(function (ring) {
-      var pts = [];
-      for (var i = 0; i < n; i += 1) pts.push(pt(i, ring).map(function (v) { return v.toFixed(1); }).join(','));
-      parts.push('<polygon points="' + pts.join(' ') + '" fill="none" stroke="rgba(28,36,56,0.12)" stroke-width="1"/>');
-    });
-    for (var i = 0; i < n; i += 1) {
-      var p = pt(i, 1);
-      parts.push('<line x1="' + cx + '" y1="' + cy + '" x2="' + p[0].toFixed(1) + '" y2="' + p[1].toFixed(1) + '" stroke="rgba(28,36,56,0.1)"/>');
-    }
-    var vals = [];
-    for (var k = 0; k < n; k += 1) {
-      vals.push(pt(k, Math.max(0.06, (F[fns[k]] || 0) / 100)).map(function (v) { return v.toFixed(1); }).join(','));
-    }
-    parts.push('<polygon points="' + vals.join(' ') + '" fill="rgba(184,75,50,0.22)" stroke="#b84b32" stroke-width="2"/>');
-    for (var j = 0; j < n; j += 1) {
-      var vp = pt(j, Math.max(0.06, (F[fns[j]] || 0) / 100));
-      parts.push('<circle cx="' + vp[0].toFixed(1) + '" cy="' + vp[1].toFixed(1) + '" r="3" fill="#b84b32"/>');
-    }
-    for (var t = 0; t < n; t += 1) {
-      var lp = pt(t, 1.17);
-      var anchor = lp[0] > cx + 8 ? 'start' : lp[0] < cx - 8 ? 'end' : 'middle';
-      var ch = D.charByFunction[fns[t]];
-      parts.push('<text x="' + lp[0].toFixed(1) + '" y="' + (lp[1] - 2).toFixed(1) + '" text-anchor="' + anchor + '" font-size="10" fill="#3a4055" font-family="sans-serif">' + shortFn[fns[t]] + '</text>');
-      parts.push('<text x="' + lp[0].toFixed(1) + '" y="' + (lp[1] + 11).toFixed(1) + '" text-anchor="' + anchor + '" font-size="9" fill="#9a8f7c" font-family="sans-serif">' + (ch ? ch.name : '') + '</text>');
-    }
-    svg.innerHTML = parts.join('');
-    var topFn = fns.slice().sort(function (a, b) { return (F[b] || 0) - (F[a] || 0); })[0];
-    var topChar = D.charByFunction[topFn];
-    $('#radarNote').textContent = '最高能量：' + shortFn[topFn] + '（' + (topChar ? topChar.name : '') + '）——' + (topChar ? topChar.oneLine : '');
-  }
-
-  function renderEnneagram(r) {
-    var E = r.report.enneagram;
-    $('#eneaBars').innerHTML = D.enneagram
-      .map(function (e) {
-        var isMain = e.id === r.enneagram.id;
-        return (
-          '<div class="bar-row' + (isMain ? ' is-main' : '') + '">' +
-          '<span class="bar-label">' + e.id + ' ' + escapeHtml(e.name) + '</span>' +
-          '<span class="bar-track"><span class="bar-fill" style="width:' + (E[e.id] || 0) + '%"></span></span>' +
-          '<span class="bar-value">' + (E[e.id] || 0) + '</span>' +
-          '</div>'
-        );
-      })
-      .join('');
-    $('#eneaNote').textContent = '主型 ' + r.enneagram.name + '（' + r.enneagram.dual + '）——' + r.enneagram.core;
-  }
-
-  function renderActs(r) {
-    var A = r.report.acts;
-    var meta = D.actMeta;
-    $('#actBars').innerHTML = Object.keys(meta)
-      .map(function (k) {
-        return (
-          '<div class="bar-row">' +
-          '<span class="bar-label">' + escapeHtml(meta[k].name) + '</span>' +
-          '<span class="bar-track"><span class="bar-fill" style="width:' + (A[k] || 0) + '%"></span></span>' +
-          '<span class="bar-value">' + (A[k] || 0) + '</span>' +
-          '</div>'
-        );
-      })
-      .join('');
-    $('#repairMarker').style.left = r.report.repairIndex + '%';
-    $('#repairNote').textContent = '修复指数 ' + r.report.repairIndex + ' / 100（' + r.posture.label + '）——' + r.posture.desc;
-  }
-
-  /* 6. 结局预测 & 一句话 */
+  /* 4. 结局预测 & 一句话 */
   function renderEnding(r) {
     var post = r.posture.key;
     var paras = ENDING[post] || ENDING.wobble;
@@ -511,6 +383,7 @@
       state.answers = {};
       state.index = 0;
       state.result = null;
+      state.optionSeed = 0;
       showIntro();
     });
     $('#btnSkipIntro').addEventListener('click', skipIntro);
