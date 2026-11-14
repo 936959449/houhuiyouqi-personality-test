@@ -1,6 +1,6 @@
 /**
- * 原型计分引擎 v2（与 spec/scoring.mjs 同一套规则，供浏览器与 Node 双端使用）
- * 注意：原型为了方便离线演示，把权重放在前端；生产实现必须把权重放服务端。
+ * 计分引擎（供浏览器与 Node 双端使用）
+ * 说明：线上为了纯静态部署把权重放在前端；如需防篡改，应改为服务端计分。
  */
 (function (root) {
   const D = root.HHYQ_DATA || (typeof require === 'function' ? require('./data.js') : null);
@@ -184,7 +184,7 @@
         note: version.note,
         source: version.source,
       },
-      type: { code: type.code, nickname: type.nickname, tagline: type.tagline, stack },
+      type: { code: type.code, stack },
       auxCharacter,
       tertiaryCharacter,
       inferiorCharacter,

@@ -1,9 +1,0 @@
-node_modules/
-.tmp_test/
-.out/
-*.log
-.DS_Store
-Thumbs.db
-.env
-.env.*
-coverage/

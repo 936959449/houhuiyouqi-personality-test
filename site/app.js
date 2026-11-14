@@ -1,5 +1,5 @@
 /* ============================================================
-   后会友期 · 人格拼图 —— 交互原型逻辑 v2
+   后会友期 · 人格拼图 —— 页面交互逻辑
    流程：封面 → 开场动画（可跳过）→ 32 题 → 票根人格拼图
    ============================================================ */
 (function () {
@@ -308,11 +308,11 @@
   function renderVerdict(r) {
     var lines = [
       '你是 <strong>' + escapeHtml(r.combo) + '</strong>。',
-      '同一份底色，你选的是 TA 在「' + escapeHtml(r.quote.scene) + '」那一刻的话——',
+      '同一趟车上，你选的是 TA 在「' + escapeHtml(r.quote.scene) + '」那一刻的话——',
       '「' + escapeHtml(r.quote.text) + '」',
       '你像 TA 的地方是：' + escapeHtml(r.person.functionRead),
       '这趟车上，你的关系姿态是「' + escapeHtml(r.posture.label) + '」：' + escapeHtml(r.posture.desc),
-      '底牌：' + escapeHtml(r.type.code + ' · ' + r.type.nickname + '；' + r.enneagram.name + ' ' + r.enneagram.dual + '；' + r.identity.name) + '。',
+      '你在关系里的动机是「' + escapeHtml(r.enneagram.name) + '」，关系身份是「' + escapeHtml(r.identity.name) + '」。',
     ];
     $('#verdict').innerHTML = lines.map(function (l) { return '<p style="margin:0 0 8px">' + l + '</p>'; }).join('');
   }
@@ -359,11 +359,11 @@
     html += cardHtml(
       '本我位｜' + p.name + '（' + fnName(r.type.stack.dom) + '）',
       p.title + ' · ' + p.keywords.join(' / '),
-      [escapeHtml(p.functionRead), escapeHtml(p.relationStyle), escapeHtml('你的底色：' + r.type.code + ' · ' + r.type.nickname + '——' + r.type.tagline)],
+      [escapeHtml(p.functionRead), escapeHtml(p.relationStyle), escapeHtml('你的相处方式：' + p.relationStyle)],
     );
     html += cardHtml(
       '关系位｜' + r.posture.label + ' · ' + idn.name,
-      '修复指数 ' + r.report.repairIndex + ' / 100 · 辅助功能 ' + r.type.stack.aux + '（' + r.auxCharacter.name + '）',
+      '修复指数 ' + r.report.repairIndex + ' / 100 · 关系里的另一面：' + r.auxCharacter.name + '（' + fnName(r.type.stack.aux) + '）',
       [
         escapeHtml(r.posture.desc),
         escapeHtml('你在关系里会调用' + r.auxCharacter.name + '式的方式：' + r.auxCharacter.functionRead),
@@ -389,6 +389,7 @@
     var svg = $('#radar');
     var F = r.report.functions;
     var fns = S.FUNCTIONS;
+    var shortFn = { Se: '外感觉', Si: '内感觉', Ne: '外直觉', Ni: '内直觉', Te: '外思维', Ti: '内思维', Fe: '外情感', Fi: '内情感' };
     var cx = 140, cy = 140, R = 92, n = fns.length;
     function pt(i, ratio) {
       var angle = (-90 + (360 / n) * i) * (Math.PI / 180);
@@ -417,13 +418,13 @@
       var lp = pt(t, 1.17);
       var anchor = lp[0] > cx + 8 ? 'start' : lp[0] < cx - 8 ? 'end' : 'middle';
       var ch = D.charByFunction[fns[t]];
-      parts.push('<text x="' + lp[0].toFixed(1) + '" y="' + (lp[1] - 2).toFixed(1) + '" text-anchor="' + anchor + '" font-size="11" fill="#3a4055" font-family="sans-serif">' + fns[t] + '</text>');
+      parts.push('<text x="' + lp[0].toFixed(1) + '" y="' + (lp[1] - 2).toFixed(1) + '" text-anchor="' + anchor + '" font-size="10" fill="#3a4055" font-family="sans-serif">' + shortFn[fns[t]] + '</text>');
       parts.push('<text x="' + lp[0].toFixed(1) + '" y="' + (lp[1] + 11).toFixed(1) + '" text-anchor="' + anchor + '" font-size="9" fill="#9a8f7c" font-family="sans-serif">' + (ch ? ch.name : '') + '</text>');
     }
     svg.innerHTML = parts.join('');
     var topFn = fns.slice().sort(function (a, b) { return (F[b] || 0) - (F[a] || 0); })[0];
     var topChar = D.charByFunction[topFn];
-    $('#radarNote').textContent = '最高能量：' + topFn + ' ' + fnName(topFn) + '（' + (topChar ? topChar.name : '') + '）——' + (topChar ? topChar.oneLine : '');
+    $('#radarNote').textContent = '最高能量：' + shortFn[topFn] + '（' + (topChar ? topChar.name : '') + '）——' + (topChar ? topChar.oneLine : '');
   }
 
   function renderEnneagram(r) {
@@ -481,7 +482,7 @@
     var text =
       '我的后友期人格拼图是：' + r.combo + '\n' +
       '「' + r.quote.text + '」——' + r.person.name + '，' + r.quote.scene + '\n' +
-      '关系姿态：' + r.posture.label + '｜底色：' + r.type.code + '｜九型：' + r.enneagram.name + ' ' + r.enneagram.dual + '｜身份：' + r.identity.name + '\n' +
+      '关系姿态：' + r.posture.label + '｜动机：' + r.enneagram.name + ' ' + r.enneagram.dual + '｜关系身份：' + r.identity.name + '\n' +
       '（' + r.code + '）';
     function done() {
       $('#copyHint').textContent = '已复制，去粘贴给那个走散的人吧。';

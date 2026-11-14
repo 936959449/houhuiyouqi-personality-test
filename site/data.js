@@ -1,7 +1,7 @@
-/* 自动生成，勿手改。源：spec/*.json —— 生成脚本：scripts/build-prototype-data.mjs */
+/* 本文件由构建脚本自动生成，请勿直接修改。 */
 (function (root) {
   root.HHYQ_DATA = {
-  "contentVersion": "2.0.0",
+  "contentVersion": "1.0.0",
   "functions": [
     "Se",
     "Si",
@@ -511,148 +511,116 @@
   },
   "types": [
     {
-      "code": "ESTP",
-      "nickname": "说走就走的人",
-      "dom": "Se",
-      "aux": "Ti",
-      "main": "baixiaochun",
-      "assist": "xufei",
-      "tagline": "先冲，再想；想清楚了，也不回头。"
-    },
-    {
-      "code": "ESFP",
-      "nickname": "车厢气氛灯",
-      "dom": "Se",
-      "aux": "Fi",
-      "main": "baixiaochun",
-      "assist": "wangzixuan",
-      "tagline": "把快乐给出去，把账算清楚。"
-    },
-    {
-      "code": "ISTP",
-      "nickname": "随身工具箱",
-      "dom": "Ti",
-      "aux": "Se",
-      "main": "xufei",
-      "assist": "baixiaochun",
-      "tagline": "话不多，动手最快。"
-    },
-    {
-      "code": "INTP",
-      "nickname": "十万个为什么",
-      "dom": "Ti",
-      "aux": "Ne",
-      "main": "xufei",
-      "assist": "qingzhi",
-      "tagline": "在心里演算一百遍，才说一句话。"
-    },
-    {
-      "code": "ENTP",
-      "nickname": "提案永动机",
-      "dom": "Ne",
-      "aux": "Ti",
-      "main": "qingzhi",
-      "assist": "xufei",
-      "tagline": "点子先飞出去，逻辑随后跟上。"
-    },
-    {
-      "code": "ENFP",
-      "nickname": "自来熟小太阳",
-      "dom": "Ne",
-      "aux": "Fi",
-      "main": "qingzhi",
-      "assist": "wangzixuan",
-      "tagline": "热爱所有人，也需要一个角落。"
-    },
-    {
-      "code": "INFP",
-      "nickname": "安静的理想国",
-      "dom": "Fi",
-      "aux": "Ne",
-      "main": "wangzixuan",
-      "assist": "qingzhi",
-      "tagline": "心里有一个不肯妥协的世界。"
-    },
-    {
-      "code": "ISFP",
-      "nickname": "温柔的独行侠",
-      "dom": "Fi",
-      "aux": "Se",
-      "main": "wangzixuan",
-      "assist": "baixiaochun",
-      "tagline": "柔软，但有自己的速度。"
-    },
-    {
-      "code": "ESTJ",
-      "nickname": "行程表本人",
-      "dom": "Te",
-      "aux": "Si",
-      "main": "wenjier",
-      "assist": "lina",
-      "tagline": "把混乱排成表，把问题推进到解决。"
-    },
-    {
-      "code": "ENTJ",
-      "nickname": "列车长",
-      "dom": "Te",
-      "aux": "Ni",
-      "main": "wenjier",
-      "assist": "matianyu",
-      "tagline": "目标是终点，感情是风景。"
-    },
-    {
-      "code": "ISTJ",
-      "nickname": "时刻表信徒",
-      "dom": "Si",
-      "aux": "Te",
-      "main": "lina",
-      "assist": "wenjier",
-      "tagline": "承诺过的事，会按时到站。"
-    },
-    {
-      "code": "ISFJ",
-      "nickname": "随身带药的人",
-      "dom": "Si",
-      "aux": "Fe",
-      "main": "lina",
-      "assist": "zhangmeng",
-      "tagline": "记得所有人的忌口，唯独不说自己累。"
-    },
-    {
-      "code": "ESFJ",
-      "nickname": "气氛组组长",
-      "dom": "Fe",
-      "aux": "Si",
-      "main": "zhangmeng",
-      "assist": "lina",
-      "tagline": "场子不能冷，谁都不能被落下。"
-    },
-    {
-      "code": "ENFJ",
-      "nickname": "关系粘合剂",
+      "code": "P01",
       "dom": "Fe",
       "aux": "Ni",
       "main": "zhangmeng",
-      "assist": "matianyu",
-      "tagline": "能看见每个人的需要，也能看穿沉默。"
+      "assist": "matianyu"
     },
     {
-      "code": "INTJ",
-      "nickname": "终局下棋人",
-      "dom": "Ni",
-      "aux": "Te",
-      "main": "matianyu",
-      "assist": "wenjier",
-      "tagline": "想三步之后的事，忍住此刻的话。"
+      "code": "P02",
+      "dom": "Ne",
+      "aux": "Fi",
+      "main": "qingzhi",
+      "assist": "wangzixuan"
     },
     {
-      "code": "INFJ",
-      "nickname": "看透不说的人",
+      "code": "P03",
+      "dom": "Te",
+      "aux": "Ni",
+      "main": "wenjier",
+      "assist": "matianyu"
+    },
+    {
+      "code": "P04",
+      "dom": "Ne",
+      "aux": "Ti",
+      "main": "qingzhi",
+      "assist": "xufei"
+    },
+    {
+      "code": "P05",
+      "dom": "Fe",
+      "aux": "Si",
+      "main": "zhangmeng",
+      "assist": "lina"
+    },
+    {
+      "code": "P06",
+      "dom": "Se",
+      "aux": "Fi",
+      "main": "baixiaochun",
+      "assist": "wangzixuan"
+    },
+    {
+      "code": "P07",
+      "dom": "Te",
+      "aux": "Si",
+      "main": "wenjier",
+      "assist": "lina"
+    },
+    {
+      "code": "P08",
+      "dom": "Se",
+      "aux": "Ti",
+      "main": "baixiaochun",
+      "assist": "xufei"
+    },
+    {
+      "code": "P09",
       "dom": "Ni",
       "aux": "Fe",
       "main": "matianyu",
-      "assist": "zhangmeng",
-      "tagline": "把善意藏进沉默里。"
+      "assist": "zhangmeng"
+    },
+    {
+      "code": "P10",
+      "dom": "Fi",
+      "aux": "Ne",
+      "main": "wangzixuan",
+      "assist": "qingzhi"
+    },
+    {
+      "code": "P11",
+      "dom": "Ni",
+      "aux": "Te",
+      "main": "matianyu",
+      "assist": "wenjier"
+    },
+    {
+      "code": "P12",
+      "dom": "Ti",
+      "aux": "Ne",
+      "main": "xufei",
+      "assist": "qingzhi"
+    },
+    {
+      "code": "P13",
+      "dom": "Si",
+      "aux": "Fe",
+      "main": "lina",
+      "assist": "zhangmeng"
+    },
+    {
+      "code": "P14",
+      "dom": "Fi",
+      "aux": "Se",
+      "main": "wangzixuan",
+      "assist": "baixiaochun"
+    },
+    {
+      "code": "P15",
+      "dom": "Si",
+      "aux": "Te",
+      "main": "lina",
+      "assist": "wenjier"
+    },
+    {
+      "code": "P16",
+      "dom": "Ti",
+      "aux": "Se",
+      "main": "xufei",
+      "assist": "baixiaochun"
     }
   ],
   "axisOpposite": {
@@ -666,149 +634,117 @@
     "Fe": "Ti"
   },
   "typeByCode": {
-    "ESTP": {
-      "code": "ESTP",
-      "nickname": "说走就走的人",
-      "dom": "Se",
-      "aux": "Ti",
-      "main": "baixiaochun",
-      "assist": "xufei",
-      "tagline": "先冲，再想；想清楚了，也不回头。"
-    },
-    "ESFP": {
-      "code": "ESFP",
-      "nickname": "车厢气氛灯",
-      "dom": "Se",
-      "aux": "Fi",
-      "main": "baixiaochun",
-      "assist": "wangzixuan",
-      "tagline": "把快乐给出去，把账算清楚。"
-    },
-    "ISTP": {
-      "code": "ISTP",
-      "nickname": "随身工具箱",
-      "dom": "Ti",
-      "aux": "Se",
-      "main": "xufei",
-      "assist": "baixiaochun",
-      "tagline": "话不多，动手最快。"
-    },
-    "INTP": {
-      "code": "INTP",
-      "nickname": "十万个为什么",
-      "dom": "Ti",
-      "aux": "Ne",
-      "main": "xufei",
-      "assist": "qingzhi",
-      "tagline": "在心里演算一百遍，才说一句话。"
-    },
-    "ENTP": {
-      "code": "ENTP",
-      "nickname": "提案永动机",
-      "dom": "Ne",
-      "aux": "Ti",
-      "main": "qingzhi",
-      "assist": "xufei",
-      "tagline": "点子先飞出去，逻辑随后跟上。"
-    },
-    "ENFP": {
-      "code": "ENFP",
-      "nickname": "自来熟小太阳",
-      "dom": "Ne",
-      "aux": "Fi",
-      "main": "qingzhi",
-      "assist": "wangzixuan",
-      "tagline": "热爱所有人，也需要一个角落。"
-    },
-    "INFP": {
-      "code": "INFP",
-      "nickname": "安静的理想国",
-      "dom": "Fi",
-      "aux": "Ne",
-      "main": "wangzixuan",
-      "assist": "qingzhi",
-      "tagline": "心里有一个不肯妥协的世界。"
-    },
-    "ISFP": {
-      "code": "ISFP",
-      "nickname": "温柔的独行侠",
-      "dom": "Fi",
-      "aux": "Se",
-      "main": "wangzixuan",
-      "assist": "baixiaochun",
-      "tagline": "柔软，但有自己的速度。"
-    },
-    "ESTJ": {
-      "code": "ESTJ",
-      "nickname": "行程表本人",
-      "dom": "Te",
-      "aux": "Si",
-      "main": "wenjier",
-      "assist": "lina",
-      "tagline": "把混乱排成表，把问题推进到解决。"
-    },
-    "ENTJ": {
-      "code": "ENTJ",
-      "nickname": "列车长",
-      "dom": "Te",
-      "aux": "Ni",
-      "main": "wenjier",
-      "assist": "matianyu",
-      "tagline": "目标是终点，感情是风景。"
-    },
-    "ISTJ": {
-      "code": "ISTJ",
-      "nickname": "时刻表信徒",
-      "dom": "Si",
-      "aux": "Te",
-      "main": "lina",
-      "assist": "wenjier",
-      "tagline": "承诺过的事，会按时到站。"
-    },
-    "ISFJ": {
-      "code": "ISFJ",
-      "nickname": "随身带药的人",
-      "dom": "Si",
-      "aux": "Fe",
-      "main": "lina",
-      "assist": "zhangmeng",
-      "tagline": "记得所有人的忌口，唯独不说自己累。"
-    },
-    "ESFJ": {
-      "code": "ESFJ",
-      "nickname": "气氛组组长",
-      "dom": "Fe",
-      "aux": "Si",
-      "main": "zhangmeng",
-      "assist": "lina",
-      "tagline": "场子不能冷，谁都不能被落下。"
-    },
-    "ENFJ": {
-      "code": "ENFJ",
-      "nickname": "关系粘合剂",
+    "P01": {
+      "code": "P01",
       "dom": "Fe",
       "aux": "Ni",
       "main": "zhangmeng",
-      "assist": "matianyu",
-      "tagline": "能看见每个人的需要，也能看穿沉默。"
+      "assist": "matianyu"
     },
-    "INTJ": {
-      "code": "INTJ",
-      "nickname": "终局下棋人",
-      "dom": "Ni",
-      "aux": "Te",
-      "main": "matianyu",
-      "assist": "wenjier",
-      "tagline": "想三步之后的事，忍住此刻的话。"
+    "P02": {
+      "code": "P02",
+      "dom": "Ne",
+      "aux": "Fi",
+      "main": "qingzhi",
+      "assist": "wangzixuan"
     },
-    "INFJ": {
-      "code": "INFJ",
-      "nickname": "看透不说的人",
+    "P03": {
+      "code": "P03",
+      "dom": "Te",
+      "aux": "Ni",
+      "main": "wenjier",
+      "assist": "matianyu"
+    },
+    "P04": {
+      "code": "P04",
+      "dom": "Ne",
+      "aux": "Ti",
+      "main": "qingzhi",
+      "assist": "xufei"
+    },
+    "P05": {
+      "code": "P05",
+      "dom": "Fe",
+      "aux": "Si",
+      "main": "zhangmeng",
+      "assist": "lina"
+    },
+    "P06": {
+      "code": "P06",
+      "dom": "Se",
+      "aux": "Fi",
+      "main": "baixiaochun",
+      "assist": "wangzixuan"
+    },
+    "P07": {
+      "code": "P07",
+      "dom": "Te",
+      "aux": "Si",
+      "main": "wenjier",
+      "assist": "lina"
+    },
+    "P08": {
+      "code": "P08",
+      "dom": "Se",
+      "aux": "Ti",
+      "main": "baixiaochun",
+      "assist": "xufei"
+    },
+    "P09": {
+      "code": "P09",
       "dom": "Ni",
       "aux": "Fe",
       "main": "matianyu",
-      "assist": "zhangmeng",
-      "tagline": "把善意藏进沉默里。"
+      "assist": "zhangmeng"
+    },
+    "P10": {
+      "code": "P10",
+      "dom": "Fi",
+      "aux": "Ne",
+      "main": "wangzixuan",
+      "assist": "qingzhi"
+    },
+    "P11": {
+      "code": "P11",
+      "dom": "Ni",
+      "aux": "Te",
+      "main": "matianyu",
+      "assist": "wenjier"
+    },
+    "P12": {
+      "code": "P12",
+      "dom": "Ti",
+      "aux": "Ne",
+      "main": "xufei",
+      "assist": "qingzhi"
+    },
+    "P13": {
+      "code": "P13",
+      "dom": "Si",
+      "aux": "Fe",
+      "main": "lina",
+      "assist": "zhangmeng"
+    },
+    "P14": {
+      "code": "P14",
+      "dom": "Fi",
+      "aux": "Se",
+      "main": "wangzixuan",
+      "assist": "baixiaochun"
+    },
+    "P15": {
+      "code": "P15",
+      "dom": "Si",
+      "aux": "Te",
+      "main": "lina",
+      "assist": "wenjier"
+    },
+    "P16": {
+      "code": "P16",
+      "dom": "Ti",
+      "aux": "Se",
+      "main": "xufei",
+      "assist": "baixiaochun"
     }
   },
   "enneagram": [
